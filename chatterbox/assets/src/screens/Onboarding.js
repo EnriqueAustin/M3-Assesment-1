@@ -1,12 +1,21 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // create a component
-const Onboarding = () => {
+const Onboarding = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Text>Onboarding</Text>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Text>Home Screen</Text>
+                <Button
+                    title="Go to Login"
+                    onPress={() => navigation.navigate('Login')}
+                />
+            </View>
         </View>
     );
 };

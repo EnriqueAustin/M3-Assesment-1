@@ -1,11 +1,12 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // create a component
-const Login = () => {
+const Login = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text>Login</Text>
