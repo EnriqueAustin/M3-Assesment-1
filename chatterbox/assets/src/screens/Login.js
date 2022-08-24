@@ -1,16 +1,37 @@
-//import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Dimensions, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 // create a component
-const Login = ({ navigation }) => {
+const Login = ({navigation}) => {
     return (
-        <View style={styles.container}>
-            <Text>Login</Text>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <Text style={{fontWeight: '100', fontSize: 34, marginBottom: 10 }}>Welcome Back</Text>
+            <Text style={{ marginBottom: 10, fontSize: 18 }}>
+                Sign in to continue
+            </Text>
+            <View  style={styles.form}>
+            <TextInput
+                style={styles.input}
+                placeholder="Email"
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Password"
+            />
+            </View>
+           
+
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('Home')}
+            >
+                <Text style={{color:'white'}}>Login</Text>
+            </TouchableOpacity>
+
+        </SafeAreaView>
     );
 };
 
@@ -18,11 +39,33 @@ const Login = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        backgroundColor:"fff",
+        padding: 30,
+        paddingTop: 130,
     },
+    input: {
+        height: 40,
+        margin: 12,
+        // borderWidth: 1,
+        borderBottomWidth: 1,
+        padding: 10,
+    },
+    button:{
+        alignItems: "center",
+        backgroundColor: "red",
+        padding: 10,
+        margin:30,
+        borderRadius:10,
+        position:'absolute',
+        bottom:0,
+        width: '100%',
+    },
+    form:{
+        paddingTop:windowHeight * 0.10
+
+    }
 });
+
 
 //make this component available to the app
 export default Login;
